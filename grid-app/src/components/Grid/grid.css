@@ -25,3 +25,6 @@
   outline: 1px solid black;
   pointer-events: none;
 }
+.disable-pointer-events {
+  pointer-events: none;
+}
