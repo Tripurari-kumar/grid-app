@@ -6,6 +6,7 @@ function Grid() {
   const [gridConfig, setGridConfig] = useState(intitalGridConfig);
   const [allActiveCellsClicked, setAllActiveCellsClicked] = useState(false);
   const [orderOfClicking, setOrderOfClicking] = useState([]);
+  const [pointerEventsEnabled, setPointerEventsEnabled] = useState(true);
 
   const delayHandler = (clickedCell, delay) =>
     new Promise((resolve) => {
@@ -26,11 +27,13 @@ function Grid() {
     });
 
   const handleReverseToInitialState = async () => {
+    setPointerEventsEnabled(false);
     for (let i = orderOfClicking.length - 1; i >= 0; i--) {
       await delayHandler(orderOfClicking[i], 1000);
     }
     setOrderOfClicking([]);
     setAllActiveCellsClicked(false);
+    setPointerEventsEnabled(true);
   };
 
   useEffect(() => {
@@ -71,7 +74,7 @@ function Grid() {
   };
 
   return (
-    <div>
+    <div className={pointerEventsEnabled ? '' : 'disable-pointer-events'}>
       {gridConfig.map((rowCells, rowIndex) => (
         <div className='rowCells' key={rowIndex}>
           {rowCells.map((cell, columnIndex) => (
