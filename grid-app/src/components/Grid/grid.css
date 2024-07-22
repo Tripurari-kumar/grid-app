@@ -1,0 +1,27 @@
+.rowCells {
+  display: flex;
+  /* outline: 1px solid black; */
+}
+
+.active-cell {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  outline: 1px solid black;
+  cursor: pointer;
+}
+
+.non-active-cell {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  pointer-events: none;
+}
+.active-cell-clicked {
+  height: 100px;
+  width: 100px;
+  display: flex;
+  background-color: green;
+  outline: 1px solid black;
+  pointer-events: none;
+}
